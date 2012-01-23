@@ -170,6 +170,14 @@ public class RealViewSwitcher extends ViewGroup {
         }
     }
 
+    public void reload() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            mChildViewLayoutMap.put(i, null);
+        }
+        this.invalidate();
+    }
+
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mScreenWidth = getSuggestedMinimumWidth();
